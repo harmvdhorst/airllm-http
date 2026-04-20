@@ -1,0 +1,17 @@
+services:
+  airllm-http:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      # Default model used if request doesn't specify "model"
+      AIRLLM_MODEL: "garage-bAInd/Platypus2-70B-instruct"
+
+      # “Array” of models to preload at startup (comma-separated)
+      AIRLLM_PRELOAD_MODELS: "garage-bAInd/Platypus2-70B-instruct"
+
+      # LRU cache size
+      AIRLLM_MAX_MODELS: "1"
+
+      # Simple header auth (Authorization: Bearer <key> OR X-API-Key: <key>)
+      AIRLLM_API_KEY: "change-me"
